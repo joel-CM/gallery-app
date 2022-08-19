@@ -11,6 +11,15 @@ const storage = multer.diskStorage({
   },
 });
 
-const upload = multer({ storage });
+const upload = multer({
+  storage,
+  fileFilter: (req, file, cb) => {
+    const ext = file.originalname.split(".").pop();
+    if (ext === "png" || ext === "jpg") {
+      cb(null, true);
+    }
+    cb(null, false);
+  },
+});
 
 module.exports = upload;

@@ -8,6 +8,7 @@ const app = Router();
 
 app.post("/", upload.single("image"), (req, res) => {
   const file = req.file;
+  if (!file) return res.json({ msg: "errorrrrrr" });
   try {
     sharp(file.path)
       .resize(200, 250)
@@ -18,8 +19,12 @@ app.post("/", upload.single("image"), (req, res) => {
     console.log(error);
   }
 
-  const prepare = "insert into images (type, name) values (?,?)";
-  const query = db.format(prepare, [file.mimetype, file.filename]);
+  const prepare = "insert into images (type, name, description) values (?,?,?)";
+  const query = db.format(prepare, [
+    file.mimetype,
+    file.filename,
+    req.body.desc.trim(),
+  ]);
   db.query(query, (err, result) => {
     if (err) throw err;
     res.json(result);

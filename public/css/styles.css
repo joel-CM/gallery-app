@@ -12,7 +12,7 @@
 
 .container {
   max-width: 1200px;
-  min-width: 500px;
+  width: 990px;
   margin: 0 auto;
 }
 
@@ -35,6 +35,18 @@
 
 .form__file {
   text-align: center;
+}
+/* .form__box-desc {
+  max-height: 300px;
+} */
+.form__desc {
+  max-width: 300px;
+  min-width: 300px;
+  width: 300px;
+  max-height: 100px;
+  min-height: 100px;
+  height: 100px;
+  margin-top: 10px;
 }
 .form__button {
   border: none;
