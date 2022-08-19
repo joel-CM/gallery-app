@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+:root {
+  --perspective: 2000px;
+}
+
+.container {
+  max-width: 1200px;
+  min-width: 500px;
+  margin: 0 auto;
+}
+
+.header__title {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  justify-content: center;
+}
+
+.form__title,
+.images__title {
+  text-align: center;
+  padding: 10px;
+}
+
+.form__file {
+  text-align: center;
+}
+.form__button {
+  border: none;
+  text-align: center;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px 0;
+  cursor: pointer;
+  border-radius: 10px;
+  background: rgb(72, 72, 255);
+  color: #fff;
+}
+
+.form__button:hover {
+  background: rgb(0, 0, 255);
+}
+
+.images__card {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  position: relative;
+  width: 200px;
+  height: 250px;
+  margin: 5px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: 1s;
+  backface-visibility: hidden;
+}
+
+.card__image {
+  transform: perspective(var(--perspective)) rotateY(0deg);
+}
+.card__info {
+  transform: perspective(var(--perspective)) rotateY(180deg);
+}
+
+.card:hover .card__image {
+  transform: perspective(var(--perspective)) rotateY(180deg);
+}
+.card:hover .card__info {
+  transform: perspective(var(--perspective)) rotateY(360deg);
+}
+
+.card__info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #eee;
+}

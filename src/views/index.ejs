@@ -1,0 +1,36 @@
+<%- include("./templates/header.ejs", {appSection: "home"}) %>
+  
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="header__title"><%= appName %></h1>
+        </header>
+        <main class="main">
+            <form class="form">
+                <h3 class="form__title">Upload Image</h3>
+                <div class="form__box-file">
+                    <input class="form__file" type="file">
+                </div>
+                <div class="form__box-button">
+                    <button class="form__button">Enviar</button>
+                </div>
+            </form>
+            <div class="images">
+                <h3 class="images__title">images</h3>
+                <div class="images__card">
+                    <% for(let i=0; i<imgs.length; i++) { %>
+                        <%- include("./templates/card.ejs", 
+                        {imgName: imgs[i].name,
+                        imgInfo: "info de la imagen"}) 
+                        %>
+                    <%}%>
+                </div>
+            </div>
+        </main>
+    </div>
+  
+
+    <!-- script -->
+    <script src="./js/main.js"></script>
+</body>
+</html>
